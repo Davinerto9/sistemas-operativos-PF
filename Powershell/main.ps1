@@ -2,6 +2,7 @@
 . "$PSScriptRoot/modules/Users.ps1"
 . "$PSScriptRoot/modules/Disks.ps1"
 . "$PSScriptRoot/modules/LargeFiles.ps1"
+. "$PSScriptRoot/modules/Memory.ps1"
 . "$PSScriptRoot/utils/Menu.ps1"
 
 do {
@@ -29,7 +30,8 @@ do {
         }
 
         "4" {
-            Write-Host "`nFuncionalidad en desarrollo..." -ForegroundColor Yellow
+            Clear-Host
+            Get-SystemMemory
         }
 
         "5" {
