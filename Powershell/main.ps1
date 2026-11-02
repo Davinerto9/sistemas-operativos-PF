@@ -1,5 +1,6 @@
 # Punto de entrada. Importa los módulos y ejecuta el menú principal.
 . "$PSScriptRoot/modules/Users.ps1"
+. "$PSScriptRoot/modules/Disks.ps1"
 . "$PSScriptRoot/utils/Menu.ps1"
 
 do {
@@ -16,7 +17,8 @@ do {
         }
 
         "2" {
-            Write-Host "`nFuncionalidad en desarrollo..." -ForegroundColor Yellow
+            Clear-Host
+            Get-SystemDisks
         }
 
         "3" {
