@@ -113,19 +113,13 @@ La implementación en Bash seguirá una organización equivalente, adaptada a la
 
 ### PowerShell
 
-1. Clonar el repositorio:
-
-```powershell
-git clone <URL_DEL_REPOSITORIO>
-```
-
 1. Acceder al directorio del proyecto:
 
 ```powershell
-cd DataCenterManager
+cd Powershell
 ```
 
-1. Ejecutar la aplicación:
+2. Ejecutar la aplicación:
 
 ```powershell
 .\main.ps1
@@ -141,25 +135,19 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 ### Bash
 
-1. Clonar el repositorio:
-
-```bash
-git clone <URL_DEL_REPOSITORIO>
-```
-
 1. Acceder al directorio del proyecto:
 
 ```bash
-cd DataCenterManager
+cd Unix
 ```
 
-1. Otorgar permisos de ejecución al script principal:
+2. Otorgar permisos de ejecución al script principal:
 
 ```bash
 chmod +x main.sh
 ```
 
-1. Ejecutar la aplicación:
+3. Ejecutar la aplicación:
 
 ```bash
 ./main.sh
