@@ -1,6 +1,7 @@
 # Punto de entrada. Importa los módulos y ejecuta el menú principal.
 . "$PSScriptRoot/modules/Users.ps1"
 . "$PSScriptRoot/modules/Disks.ps1"
+. "$PSScriptRoot/modules/LargeFiles.ps1"
 . "$PSScriptRoot/utils/Menu.ps1"
 
 do {
@@ -22,7 +23,9 @@ do {
         }
 
         "3" {
-            Write-Host "`nFuncionalidad en desarrollo..." -ForegroundColor Yellow
+            Clear-Host
+            $path = Read-Host "Ingrese la ruta del disco o filesystem (Ejemplo: C:\)"
+            Get-LargestFiles -Path $path
         }
 
         "4" {
