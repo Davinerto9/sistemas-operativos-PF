@@ -1,0 +1,1 @@
+# Contiene funciones auxiliares reutilizables.

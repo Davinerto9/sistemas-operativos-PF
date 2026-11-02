@@ -1,0 +1,1 @@
+# Realiza copias de seguridad y genera el catálogo de archivos.

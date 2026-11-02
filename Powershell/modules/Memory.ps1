@@ -1,0 +1,1 @@
+# Consulta la memoria RAM disponible y el espacio de paginación utilizado.

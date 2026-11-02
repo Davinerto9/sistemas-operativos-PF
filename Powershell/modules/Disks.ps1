@@ -1,0 +1,1 @@
+# Obtiene los discos y filesystems conectados, su tamaño y espacio libre.

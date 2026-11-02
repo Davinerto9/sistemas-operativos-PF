@@ -1,0 +1,1 @@
+# Gestiona la interacción con el usuario y la navegación del menú.

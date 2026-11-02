@@ -1,0 +1,1 @@
+# Consulta los usuarios del sistema y su último inicio de sesión.

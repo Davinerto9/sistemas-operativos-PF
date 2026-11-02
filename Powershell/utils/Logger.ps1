@@ -1,0 +1,1 @@
+# Registra las operaciones y los errores del programa.
