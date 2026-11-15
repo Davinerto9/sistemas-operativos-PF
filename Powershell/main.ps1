@@ -3,7 +3,10 @@
 . "$PSScriptRoot/modules/Disks.ps1"
 . "$PSScriptRoot/modules/LargeFiles.ps1"
 . "$PSScriptRoot/modules/Memory.ps1"
+. "$PSScriptRoot/modules/Backup.ps1"
 . "$PSScriptRoot/utils/Menu.ps1"
+. "$PSScriptRoot/utils/Logger.ps1"
+. "$PSScriptRoot/utils/Helpers.ps1"
 
 do {
 
@@ -35,7 +38,8 @@ do {
         }
 
         "5" {
-            Write-Host "`nFuncionalidad en desarrollo..." -ForegroundColor Yellow
+            Clear-Host
+            Invoke-Backup
         }
 
         "0" {
