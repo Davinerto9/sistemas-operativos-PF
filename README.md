@@ -57,11 +57,22 @@ Permite consultar información relacionada con la memoria del sistema:
 
 Permite realizar copias de seguridad de un directorio especificado hacia una memoria USB.
 
-Además de copiar los archivos, se genera un catálogo que contiene:
+El usuario escoge la memoria USB de destino entre las que estén conectadas y el directorio que desea respaldar. Antes de copiar se verifica que la USB tenga espacio suficiente.
+
+Además de copiar los archivos, se genera un catálogo (`catalogo.csv`, separado por `;`) que contiene:
 
 * Nombre del archivo.
 * Fecha de última modificación.
-* Ruta del archivo.
+* Tamaño en bytes.
+* Ruta del archivo dentro del backup.
+
+Cada backup queda en la USB con la siguiente estructura:
+
+```text
+<USB>/Backups/<Directorio>_<aaaammdd_hhmmss>/
+├── archivos/       # Copia del directorio respaldado
+└── catalogo.csv    # Catálogo de archivos
+```
 
 ## Arquitectura del proyecto
 
@@ -100,14 +111,42 @@ DataCenterManager/
 | `Memory.ps1`     | Consulta la memoria RAM y el espacio de SWAP.                                       |
 | `Backup.ps1`     | Gestiona las copias de seguridad y la generación de catálogos.                      |
 | `Menu.ps1`       | Gestiona la interacción con el usuario.                                             |
-| `Logger.ps1`     | Registra operaciones y errores.                                                     |
+| `Logger.ps1`     | Registra operaciones y errores en `Powershell/logs/datacenter.log`.                 |
 | `Helpers.ps1`    | Contiene funciones auxiliares reutilizables.                                        |
 
 ### Bash
 
-La implementación en Bash seguirá una organización equivalente, adaptada a las herramientas y características de los sistemas Linux.
+La implementación en Bash sigue una organización equivalente, adaptada a las herramientas y características de los sistemas Linux.
 
-*La estructura definitiva de esta implementación se documentará durante su desarrollo.*
+```text
+Unix/
+│
+├── main.sh
+│
+├── modules/
+│   ├── users.sh
+│   ├── disks.sh
+│   ├── largefiles.sh
+│   ├── memory.sh
+│   └── backup.sh
+│
+└── utils/
+    ├── menu.sh
+    ├── logger.sh
+    └── helpers.sh
+```
+
+| Archivo         | Descripción                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| `main.sh`       | Punto de entrada de la aplicación. Importa los módulos y ejecuta el menú principal.           |
+| `users.sh`      | Consulta los usuarios del sistema (`/etc/passwd`) y su último inicio de sesión (`lastlog`/`last`). |
+| `disks.sh`      | Obtiene los filesystems montados, su tamaño y espacio libre en bytes (`df -B1`).              |
+| `largefiles.sh` | Identifica los diez archivos más grandes de un filesystem especificado.                       |
+| `memory.sh`     | Consulta la memoria RAM libre y el espacio de SWAP en uso.                                    |
+| `backup.sh`     | Gestiona las copias de seguridad hacia una memoria USB y la generación del catálogo.          |
+| `menu.sh`       | Muestra el menú principal.                                                                    |
+| `logger.sh`     | Registra operaciones y errores en `Unix/logs/datacenter.log`.                                 |
+| `helpers.sh`    | Contiene funciones auxiliares reutilizables (colores, pausas, formato de bytes).              |
 
 ## Instalación y ejecución
 
